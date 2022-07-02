@@ -1,5 +1,7 @@
 // Write your JavaScript code here!
 
+const { validateInput } = require("./scriptHelper");
+
 window.addEventListener("load", function() {
 
    let form = document.getElementById("launchForm");
@@ -10,7 +12,7 @@ window.addEventListener("load", function() {
 
 
    form.addEventListener("submit", (event) => {
-    if (form.value === "" || pilotName.value === "" || copilotName.value === "" || fuelLevel === "" || cargoMass === ""){
+    if (form.value === "" || pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
         alert("All Fields Required");
         event.preventDefault();
     }
