@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
 
    form.addEventListener("submit", (event) => {
     if (form.value === "" || pilotName.value === "" || copilotName.value === "" || fuelLevel === "" || cargoMass === ""){
-        console.log("test?");
+        alert("All Fields Required");
         event.preventDefault();
     }
     
