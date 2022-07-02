@@ -4,13 +4,17 @@ window.addEventListener("load", function() {
 
    let form = document.getElementById("launchForm");
    let pilotName = document.getElementById("pilotName");
-   let copilotName = document.getElementsByName("copilotName");
-   let 
+   let copilotName = document.querySelector("input[name=copilotName");
+   let fuelLevel = document.querySelector("input[name=fuelLevel");
+   let cargoMass = document.querySelector("input[name=cargoMass");
 
 
    form.addEventListener("submit", (event) => {
-    console.log("test?");
-    event.preventDefault();
+    if (form.value === "" || pilotName.value === "" || copilotName.value === "" || fuelLevel === "" || cargoMass === ""){
+        console.log("test?");
+        event.preventDefault();
+    }
+    
    });
 
 
