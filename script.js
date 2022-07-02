@@ -2,6 +2,8 @@
 
 const { validateInput } = require("./scriptHelper");
 
+//const { validateInput } = require("./scriptHelper");
+
 window.addEventListener("load", function() {
 
    let form = document.getElementById("launchForm");
@@ -12,8 +14,22 @@ window.addEventListener("load", function() {
 
 
    form.addEventListener("submit", (event) => {
-    if (form.value === "" || pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
-        alert("All Fields Required");
+    let inputs = [pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value]
+    let validatedResults = []
+    let validatedItem = ""
+    for(let i=0; i<inputs.length; i++){
+        let validatedItem = validateInput(inputs[i]);
+        validatedResults.push(validatedItem);
+
+    }
+
+
+    let returnValue = validateInput(pilot.value)
+    if(returnValue === 'Empty'){
+        alert("All fields required!")
+    }
+    if()
+    
         event.preventDefault();
     }
     
