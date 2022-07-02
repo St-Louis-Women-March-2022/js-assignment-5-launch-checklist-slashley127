@@ -13,6 +13,8 @@ window.addEventListener("load", function() {
    let cargoMass = document.querySelector("input[name=cargoMass");
 
 
+   //NTS: write without for loop first just to check then try to rewrite with for loop?
+   
    form.addEventListener("submit", (event) => {
     let inputs = [pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value]
     let validatedResults = []
@@ -20,18 +22,14 @@ window.addEventListener("load", function() {
     for(let i=0; i<inputs.length; i++){
         let validatedItem = validateInput(inputs[i]);
         validatedResults.push(validatedItem);
-
     }
 
-
-    let returnValue = validateInput(pilot.value)
-    if(returnValue === 'Empty'){
-        alert("All fields required!")
+    if(inputs[0] === ""){
+        this.alert("THIS IS AN ALERT IDIOT!")
     }
-    if()
     
         event.preventDefault();
-    }
+    });
     
    });
 
