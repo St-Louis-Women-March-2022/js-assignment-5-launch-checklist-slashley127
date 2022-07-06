@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 
-const { validateInput } = require("./scriptHelper");
+//const { validateInput } = require("./scriptHelper");
 
 //const { validateInput } = require("./scriptHelper");
 

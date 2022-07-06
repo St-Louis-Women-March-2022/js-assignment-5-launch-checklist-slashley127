@@ -1,5 +1,5 @@
 // Write your helper functions here!
-//require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -16,13 +16,18 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-function validateInput(testInput) 
-//   if(!isNaN(pilotName){
-//     alert("Must Enter Name!")
-//     return("Is a number")
-//   }
+function validateInput(testInput) {
+  if(isNaN(testInput)){
+    return ("Not a Number")
+  }
+  if(typeof(testInput) === Number){
+    return ("Is a Number")
+  }
+  if(testInput === ""){
+    return("Empty")
+  }
    
-// }
+}
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    
