@@ -2,7 +2,6 @@
 
 //const { validateInput } = require("./scriptHelper");
 
-//const { validateInput } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 
@@ -11,22 +10,13 @@ window.addEventListener("load", function() {
    let copilotName = document.querySelector("input[name=copilotName");
    let fuelLevel = document.querySelector("input[name=fuelLevel");
    let cargoMass = document.querySelector("input[name=cargoMass");
+   let userInput = [pilotName, copilotName, fuelLevel, cargoMass]
 
 
    //NTS: write without for loop first just to check then try to rewrite with for loop?
    
    form.addEventListener("submit", (event) => {
-    let inputs = [pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value]
-    let validatedResults = []
-    let validatedItem = ""
-    for(let i=0; i<inputs.length; i++){
-        let validatedItem = validateInput(inputs[i]);
-        validatedResults.push(validatedItem);
-    }
-
-    if(inputs[0] === ""){
-        this.alert("THIS IS AN ALERT IDIOT!")
-    }
+    validateInput(userInput)
     
         event.preventDefault();
     });
@@ -44,8 +34,5 @@ window.addEventListener("load", function() {
    }).then(function () {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-   })
+   });
 
-
-
-});
