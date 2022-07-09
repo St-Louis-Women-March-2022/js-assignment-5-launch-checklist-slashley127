@@ -16,25 +16,23 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-function checkInput () {
-  let form = document.getElementById("launchForm");
-  let pilotName = document.getElementById("pilotName");
-  let copilotName = document.querySelector("input[name=copilotName");
-  let fuelLevel = document.querySelector("input[name=fuelLevel");
-  let cargoMass = document.querySelector("input[name=cargoMass");
 
+function checkInput(){
+  let form = document.getElementById("launchForm");
   form.addEventListener("submit", (event) => {
-    if(pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === ""){
+    let pilotName = document.getElementById("pilotName");
+    let copilotName = document.querySelector("input[name=copilotName");
+    let fuelLevel = document.querySelector("input[name=fuelLevel");
+    let cargoMass = document.querySelector("input[name=cargoMass");
+    if(pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
       alert("All Fields Required!");
-      event.preventDefault();
-    }  ;
+      };
+    event.preventDefault();
   });
 };
+
+
   
-
-
-
-
 
 function validateInput(testInput) {
   for (let i = 0; i<testInput.length; i++){
@@ -66,18 +64,18 @@ async function myFetch() {
 function pickPlanet(planets) {
 }
 
-// module.exports.addDestinationInfo = addDestinationInfo;
-// module.exports.validateInput = validateInput;
-// module.exports.formSubmission = formSubmission;
-// module.exports.pickPlanet = pickPlanet; 
-// module.exports.myFetch = myFetch;
-// module.exports.checkInput = checkInput;
+module.exports.addDestinationInfo = addDestinationInfo;
+module.exports.validateInput = validateInput;
+module.exports.formSubmission = formSubmission;
+module.exports.pickPlanet = pickPlanet; 
+module.exports.myFetch = myFetch;
+module.exports.checkInput = checkInput;
 
-module.exports = {
-  checkInput: checkInput,
-  addDestinationInfo: addDestinationInfo,
-  validateInput: validateInput,
-  formSubmission: formSubmission,
-  pickPlanet: pickPlanet,
-  myFetch: myFetch,
-};
+// module.exports = {
+//   checkInput: checkInput,                                                                                                                  b
+//   addDestinationInfo: addDestinationInfo,
+//   validateInput: validateInput,
+//   formSubmission: formSubmission,
+//   pickPlanet: pickPlanet,
+//   myFetch: myFetch,
+// };

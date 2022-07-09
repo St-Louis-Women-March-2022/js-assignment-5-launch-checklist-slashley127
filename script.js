@@ -1,14 +1,12 @@
 // Write your JavaScript code here!
 
-const { validateInput } = require("./scriptHelper");
+//const { checkInput } = require("./scriptHelper");
+
+//const { validateInput } = require("./scriptHelper");
 
 
 window.addEventListener("load", function() {
-    checkInput()
-   
-
-   //need to push values into userInput arry INSIDE event listener function
-   
+    checkInput();
     
    
 
