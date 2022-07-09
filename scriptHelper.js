@@ -16,6 +16,26 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
+function checkInput () {
+  let form = document.getElementById("launchForm");
+  let pilotName = document.getElementById("pilotName");
+  let copilotName = document.querySelector("input[name=copilotName");
+  let fuelLevel = document.querySelector("input[name=fuelLevel");
+  let cargoMass = document.querySelector("input[name=cargoMass");
+
+  form.addEventListener("submit", (event) => {
+    if(pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === ""){
+      alert("All Fields Required!");
+      event.preventDefault();
+    }  ;
+  });
+};
+  
+
+
+
+
+
 function validateInput(testInput) {
   for (let i = 0; i<testInput.length; i++){
     if(isNaN(testInput)){
@@ -46,8 +66,18 @@ async function myFetch() {
 function pickPlanet(planets) {
 }
 
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;
+// module.exports.addDestinationInfo = addDestinationInfo;
+// module.exports.validateInput = validateInput;
+// module.exports.formSubmission = formSubmission;
+// module.exports.pickPlanet = pickPlanet; 
+// module.exports.myFetch = myFetch;
+// module.exports.checkInput = checkInput;
+
+module.exports = {
+  checkInput: checkInput,
+  addDestinationInfo: addDestinationInfo,
+  validateInput: validateInput,
+  formSubmission: formSubmission,
+  pickPlanet: pickPlanet,
+  myFetch: myFetch,
+};
