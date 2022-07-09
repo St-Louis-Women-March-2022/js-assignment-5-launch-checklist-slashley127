@@ -1,12 +1,10 @@
 // Write your JavaScript code here!
 
-//const { checkInput } = require("./scriptHelper");
-
-//const { validateInput } = require("./scriptHelper");
 
 
 window.addEventListener("load", function() {
-    checkInput();
+    validateInput();
+
     
    
 

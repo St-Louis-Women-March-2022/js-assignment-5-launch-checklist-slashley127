@@ -1,3 +1,5 @@
+const { implForWrapper } = require('jsdom/lib/jsdom/living/generated/utils');
+
 // Write your helper functions here!
 require('isomorphic-fetch');
 
@@ -17,40 +19,46 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 
-function checkInput(){
-  let form = document.getElementById("launchForm");
-  form.addEventListener("submit", (event) => {
-    let pilotName = document.getElementById("pilotName");
-    let copilotName = document.querySelector("input[name=copilotName");
-    let fuelLevel = document.querySelector("input[name=fuelLevel");
-    let cargoMass = document.querySelector("input[name=cargoMass");
-    if(pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
-      alert("All Fields Required!");
-      };
-    event.preventDefault();
-  });
-};
-
-
+// function checkForEmpty(){
+//   let form = document.getElementById("launchForm");
+//   form.addEventListener("submit", (event) => {
+//     let pilotName = document.getElementById("pilotName");
+//     let copilotName = document.querySelector("input[name=copilotName");
+//     let fuelLevel = document.querySelector("input[name=fuelLevel");
+//     let cargoMass = document.querySelector("input[name=cargoMass");
+//     if(pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
+//       alert("All Fields Required!");
+//       };
+//     event.preventDefault();
+//   });
+// };
   
 
 function validateInput(testInput) {
-  for (let i = 0; i<testInput.length; i++){
-    if(isNaN(testInput)){
-      return ("Not a Number")
+  const form = document.getElementById("launchForm")
+  form.addEventListener("submit", (event) => {
+    let pilotName = document.getElementById("pilotName").value;
+    let copilotName = document.querySelector("input[name=copilotName").value;
+    let fuelLevel = document.querySelector("input[name=fuelLevel").value;
+    let cargoMass = document.querySelector("input[name=cargoMass").value;
+    let inputValues = [pilotName, copilotName, fuelLevel, cargoMass]
+
+    if (!pilotName || !copilotName || !fuelLevel || !CargoMass){
+      alert("All fields required!")
+      return "Empty"
     }
-    if(typeof(testInput) === Number){
-      return ("Is a Number")
+    if (typeof(pilotName)===Number || typeof(copilotName)===Number){
+      alert("Pilot name and copilot name cannot include numbers")
     }
-    if(testInput === ""){
-      return("Empty")
-    };
-  }; 
+
+  });
+    
 };
 
+//when we call formSubmission we will call with parameters pilotName.value, copilotName.value, etc
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
-}
+
+};
 
 async function myFetch() {
     let planetsReturned;
@@ -69,7 +77,7 @@ module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
-module.exports.checkInput = checkInput;
+module.exports.checkForEmpty = checkForEmpty;
 
 // module.exports = {
 //   checkInput: checkInput,                                                                                                                  b
