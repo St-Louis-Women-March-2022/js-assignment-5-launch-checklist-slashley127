@@ -5,9 +5,14 @@
 const form = document.getElementById("launchForm")
 
 window.addEventListener("load", function() {
-    form.addEventListener("submit", (event) => {
+    document.addEventListener("submit", (event) => {
         event.preventDefault();
-        formSubmission();
+        const pilot = document.getElementById("pilotName").value;
+        const copilot = document.querySelector("input[name=copilotName").value;
+        const fuelLevel = document.querySelector("input[name=fuelLevel").value;
+        const cargoLevel = document.querySelector("input[name=cargoMass").value;
+        const list = document.getElementById("faultyItems")
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
 
 
         let listedPlanets;
