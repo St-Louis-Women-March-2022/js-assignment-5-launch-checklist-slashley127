@@ -49,10 +49,14 @@ function validateInput(testInput) {
     if (!pilotName || !copilotName || !fuelLevel || !cargoMass){
       alert("All fields required!");
       return "Empty"   
-    } else if (typeof(pilotName===Number) || typeof(copilotName===Number)){
-      alert("Pilot name and copilot name cannot be numbers!");
-      return "Is number."
+    } else if (pilotName.match(/\d+/g) != null || copilotName.match(/\d+/g) != null){
+      alert("Pilot name and copilot name cannot include numbers!");
+      return "Is a number."
+    } else if (isNaN(fuelLevel) || isNaN(cargoMass)){
+      alert("Fuel Level and cargo mass must be numbers!")
+      return "Is not a number."
     }
+ 
   
 
 
