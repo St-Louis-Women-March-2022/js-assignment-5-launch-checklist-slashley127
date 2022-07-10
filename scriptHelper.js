@@ -35,13 +35,17 @@ function validateInput(testInput) {
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+  const form = document.getElementById("launchForm")
   pilotValue = validateInput(pilot)
-  if(pilotValue === "Empty"){
+  copilotValue = validateInput(copilot)
+  if(pilotValue === "Empty" || pilotValue === "Is a Number."){
     alert("OMG STAHP");
-  }
-  
+  } 
+  if(copilotValue === "Empty" || copilo)
 
+    
 };
+  
 
 async function myFetch() {
     let planetsReturned;
