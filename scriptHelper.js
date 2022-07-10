@@ -37,7 +37,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
 function validateInput(testInput) {
   const form = document.getElementById("launchForm")
-  form.addEventListener("submit", (event) => {
+  
     event.preventDefault();
 
     const pilotName = document.getElementById("pilotName").value;
@@ -55,18 +55,14 @@ function validateInput(testInput) {
     } else if (isNaN(fuelLevel) || isNaN(cargoMass)){
       alert("Fuel Level and cargo mass must be numbers!")
       return "Is not a number."
-    }
- 
-  
-
-
-
- });
+    } 
     
 };
 
 //when we call formSubmission we will call with parameters pilotName.value, copilotName.value, etc
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+  validateInput();
+  
 
 };
 
