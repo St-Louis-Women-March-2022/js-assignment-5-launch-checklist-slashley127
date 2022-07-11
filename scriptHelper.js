@@ -24,10 +24,10 @@ function validateInput(testInput) {
     if (testInput === ""){
       return "Empty"
     }
-    if (testInput === !Number){
+    if (isNaN(testInput)){
       return "Not a number."
     }
-    if (testInput === Number){
+    if (!isNaN(testInput)){
       return "Is a number."
     }  
 };
@@ -36,13 +36,22 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const form = document.getElementById("launchForm")
-  pilotValue = validateInput(pilot)
-  copilotValue = validateInput(copilot)
-  if(pilotValue === "Empty" || pilotValue === "Is a Number."){
-    alert("OMG STAHP");
-  } 
-  if(copilotValue === "Empty" || copilo)
+  pilotValue = validateInput(pilot);
+  copilotValue = validateInput(copilot);
+  fuelLevelValue = validateInput(fuelLevel);
+  cargoLevelValue = validateInput(cargoLevel);
+  list = document.getElementById("faultyItems");
 
+  if(pilotValue === "Empty" || copilotValue === "Empty" || fuelLevelValue === "Empty" || cargoLevelValue === "Empty"){
+    alert("All fields required");
+  } else if(pilotValue === "Is a number." || copilotValue === "Is a number."){
+    alert("Please enter valid names for pilot and copilot")
+  } else if(fuelLevelValue === "Not a number." || cargoLevelValue === "Not a number."){
+    alert("Please enter valid amounts for Fuel Level and Cargo Level")
+  } else {
+    const list = document.getElementById("pilotStatus").innerHTML = `
+    <li>Pilot ${pilot} ready`</li>
+  };
     
 };
   
