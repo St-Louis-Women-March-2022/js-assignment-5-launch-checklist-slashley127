@@ -43,15 +43,45 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   list = document.getElementById("faultyItems");
 
   if(pilotValue === "Empty" || copilotValue === "Empty" || fuelLevelValue === "Empty" || cargoLevelValue === "Empty"){
+    list.style.visibility = "hidden"
     alert("All fields required");
-  } else if(pilotValue === "Is a number." || copilotValue === "Is a number."){
-    alert("Please enter valid names for pilot and copilot")
-  } else if(fuelLevelValue === "Not a number." || cargoLevelValue === "Not a number."){
-    alert("Please enter valid amounts for Fuel Level and Cargo Level")
+  }
+
+  if(pilotValue === "Is a number." || copilotValue === "Is a number."){
+    list.style.visibility = "hidden"
+    alert("Pilot and Copilot names cannot be numbers")
   } else {
-    const list = document.getElementById("pilotStatus").innerHTML = `
-    <li>Pilot ${pilot} ready`</li>
+    list.style.visibility = "visible"
+    document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} Ready`
+    document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilot} Ready`
   };
+
+  if(fuelLevelValue === "Not a number." || cargoLevelValue === "Not a number."){
+    list.style.visibility = "hidden"
+    alert("Fuel Level and Cargo Mass must be numbers");
+  }else if(fuelLevel<10000){
+    list.style.visibility = "visible"
+    document.getElementById("fuelStatus").innerHTML = 'Fuel level is TOO LOW for launch!'
+    document.getElementById("launchStatus").innerHTML = 'Shuttle not ready for launch'
+    document.getElementById("launchStatus").style.color = "red"
+  }else{
+    list.style.visibility = "visible"
+    document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch"
+    document.getElementById("launchStatus").style.color = "green"
+  }
+
+  if(cargoLevel>10000){
+    list.style.visibility = "visibile"
+    document.getElementById("cargoStatus").innerHTML = 'Cargo mass is TOO LARGE for launch!'
+    document.getElementById("launchStatus").innerHTML = 'Shuttle not ready for launch'
+    document.getElementById("launchStatus").style.color = "red"
+  } else {
+    list.style.visibility = "visible"
+    document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch"
+    document.getElementById("launchStatus").style.color = "green"
+  }
+  
+
     
 };
   
