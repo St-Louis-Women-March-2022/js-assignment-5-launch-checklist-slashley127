@@ -4,7 +4,7 @@ const { implForWrapper } = require('jsdom/lib/jsdom/living/generated/utils');
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-//function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
+function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    /*
                 <h2>Mission Destination</h2>
@@ -17,7 +17,7 @@ require('isomorphic-fetch');
                 </ol>
                 <img src="">
    */
- //}
+ }
   
 
 function validateInput(testInput) {
@@ -80,23 +80,25 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch"
     document.getElementById("launchStatus").style.color = "green"
   }
-  
-
-    
+      
 };
   
 
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
-        });
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+      return response.json()
+     });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+  index = Math.floor(Math.random()*6)
+  return planets[index]
 }
+
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
